@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE PRCD_FEC_EMP_CAD0159 (P_ID_UNN  IN NUMBER,
+                                                  P_ID_EMP_NEW  IN NUMBER,
+                                                  P_ID_EMP_REF  IN NUMBER)
+IS
+BEGIN
+  INSERT INTO LOCAL
+    SELECT ID_UNN, P_ID_EMP_NEW, ID_TP_LOC, ID_LOC, CD_SITUACAO, NM_LOC, CD_MODAL_ENT
+      FROM LOCAL
+     WHERE ID_UNN = P_ID_UNN
+       AND ID_EMP = P_ID_EMP_REF;
+   COMMIT;
+END PRCD_FEC_EMP_CAD0159;
+/
